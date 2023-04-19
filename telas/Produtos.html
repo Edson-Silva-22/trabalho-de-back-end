@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/Produtos.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -61,60 +63,32 @@
                     </table>
 
                     <div>
-                        <button id="button1">Editar</button>
-                        <button id="button2">Excluir</button>
+                        <button class="button1" ref="buttonOpen" v-on:click="mostrar">Editar</button>
+                        <button class="button2">Excluir</button>
                     </div>
+                </div>
+            </div>
+
+            <div id="fade" class="hide" ref="fade" v-on:click="mostrar"></div>
+            
+            <div id="modal" class="hide" ref="modal">
+                <h1>Atualizar Produto</h1>
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome">
+
+                <label for="codigo">Código:</label>
+                <input type="text" name="codigo" id="codigo">
+
+                <label for="quantidade">Quantidade:</label>
+                <input type="text" name="quantidade" id="quantidade">
+
+                <div>
+                    <button class="button1">Salvar</button>
+                    <button class="button2" ref="buttonClose" v-on:click="mostrar">Cancelar</button>
                 </div>
             </div>
         </main>
     </div>
-
-
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-        const { ref, createApp } = Vue
-        createApp({
-            setup() {
-                const remedios = ref([
-                    {
-                        nome: 'Paracetamol',
-                        codigo: 'RMD-001',
-                        quantidade: 50
-                    },
-                    {
-                        nome: 'Ibuprofeno',
-                        codigo: 'RMD-002',
-                        quantidade: 30
-                    },
-                    {
-                        nome: 'Dipirona',
-                        codigo: 'RMD-003',
-                        quantidade: 20
-                    },
-                    {
-                        nome: 'Amoxicilina',
-                        codigo: 'RMD-004',
-                        quantidade: 10
-                    },
-                    {
-                        nome: 'Cetoprofeno',
-                        codigo: 'RMD-005',
-                        quantidade: 25
-                    },
-                    {
-                        nome: 'Omeprazol',
-                        codigo: 'RMD-006',
-                        quantidade: 15
-                    }
-                ]);
-
-
-                return {
-                    remedios
-                }
-            }
-        }).mount('#app')
-    </script>
 </body>
 
 </html>
