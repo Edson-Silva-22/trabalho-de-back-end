@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/Produtos.css">
 </head>
+
 <body>
     <!-- A parte do header vai ser padrão em todas as tela, então não precisa mexer nele por enquanto e o css do menu já esta feito no arquivo Inicio.css -->
     <header>
-        <img src="../img/comprimido 1.png" alt="">
+        <div id="logo">
+            <span id="span1">Need</span>
+            <img src="../img/icons8-pulsação-100.png" alt="">
+            <span id="span2">Farma</span>
+        </div>
 
         <ul>
             <li>
@@ -25,12 +31,90 @@
     </header>
 
     <!-- o que estiver dentro do main é o que vai mudar em cada tela -->
-    <main>
-        <div id="busca">
-            <img src="../img/lupa 1.png" alt="lupa">
-            <input type="text" name="busca" id="inputBusca">
-            <button>Buscar</button>
-        </div>
-    </main>
+    <div id="app">
+        <main>
+            <div id="busca">
+                <img src="../img/lupa 1.png" alt="lupa" id="lupa">
+                <input type="text" name="busca" id="inputBusca" placeholder="Pesquisar medicamento">
+                <button>Buscar</button>
+            </div>
+
+            <div id="container">
+                <div id="tabela" v-for="(remedio, index) in remedios" :key="index">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Nome:</td>
+                                <td>{{remedio.nome}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Código:</td>
+                                <td>{{remedio.codigo}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Quantidade:</td>
+                                <td>{{remedio.quantidade}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div>
+                        <button id="button1">Editar</button>
+                        <button id="button2">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { ref, createApp } = Vue
+        createApp({
+            setup() {
+                const remedios = ref([
+                    {
+                        nome: 'Paracetamol',
+                        codigo: 'RMD-001',
+                        quantidade: 50
+                    },
+                    {
+                        nome: 'Ibuprofeno',
+                        codigo: 'RMD-002',
+                        quantidade: 30
+                    },
+                    {
+                        nome: 'Dipirona',
+                        codigo: 'RMD-003',
+                        quantidade: 20
+                    },
+                    {
+                        nome: 'Amoxicilina',
+                        codigo: 'RMD-004',
+                        quantidade: 10
+                    },
+                    {
+                        nome: 'Cetoprofeno',
+                        codigo: 'RMD-005',
+                        quantidade: 25
+                    },
+                    {
+                        nome: 'Omeprazol',
+                        codigo: 'RMD-006',
+                        quantidade: 15
+                    }
+                ]);
+
+
+                return {
+                    remedios
+                }
+            }
+        }).mount('#app')
+    </script>
 </body>
+
 </html>

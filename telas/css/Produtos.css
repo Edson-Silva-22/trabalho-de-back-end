@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 *{
     padding: 0%;
     margin: 0%;
@@ -15,6 +17,34 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#logo{
+    position: relative;
+    font-size: 2.5rem;
+    height: 100%;
+    width: 15rem;
+    color: white;
+    margin-left: 3rem;
+}
+
+#logo > #span1{
+    font-family: 'Josefin Sans', sans-serif; 
+    position: absolute;
+    top: 1rem;
+}
+
+#logo > #span2{
+    font-family: 'Josefin Sans', sans-serif; 
+    position: absolute;
+    bottom: 1rem;
+    left: 7.5rem;
+}
+
+#logo > img{
+    position: absolute;
+    top: 2.6rem;
+    left: 3.2rem;
 }
 
 ul{
@@ -44,14 +74,97 @@ img{
 
 /* as configurações acima são para o menu que vai está em toda as telas */
 
-main{
-    background-color: #E1E1E1;
-}
+/* as configurações acima são para o menu que vai está em toda as telas */
+
 
 #busca{
     width: 80%;
-    height: 4rem;
+    height: 3.5rem;
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 4rem auto;
 }
+
+#lupa{
+    background-color: white;
+    border-radius: 5px 0 0 5px;
+    height: 100%;
+}
+
+#busca > input {
+    height: 100%;
+    width: 60%;
+    border: none;
+    text-indent: 2rem;
+    outline: none;
+}
+
+#busca > button{
+    height: 100%;
+    border: none;
+    padding: 0 1rem;
+    border-radius: 0 5px 5px 0;
+    background-color: #4D19DF;
+    color: white;
+    cursor: pointer;
+}
+
+#container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#container > #tabela{
+    background-color: white;
+    width: 23rem;
+    height: 19rem;
+    font-size: 1.6rem;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 2px 4px 5px 2px #a9a7b6;
+}
+
+#container > div > table td{
+    padding: 1rem 0.5rem;
+}
+
+#container > #tabela > div{
+    margin: 2rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+#container > #tabela > div > button{
+    height: 3rem;
+    width: 8rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+#button1{
+    background-color: #2453F8;
+}
+
+#button1:hover{
+    background-color: #1c43d3;
+}
+
+#button2{
+    background-color: #D82626;
+}
+
+#button2:hover{
+    background-color: #b31e1e;
+}
+
+
 
