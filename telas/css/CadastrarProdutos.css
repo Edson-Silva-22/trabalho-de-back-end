@@ -10,6 +10,10 @@
     font-size: 62.5%;
 }
 
+body{
+    background-color: #C3C1D2;
+}
+
 header{
     height: 8rem;
     width: 100%;
