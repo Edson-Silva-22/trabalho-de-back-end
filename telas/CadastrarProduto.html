@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/CadastrarProdutos.css">
 </head>
+
 <body>
     <!-- A parte do header vai ser padrão em todas as tela, então não precisa mexer nele por enquanto e o css do menu já esta feito no arquivo Inicio.css -->
     <header>
@@ -29,6 +31,41 @@
     </header>
 
     <!-- o que estiver dentro do main é o que vai mudar em cada tela -->
-    <main></main>
+    <main>
+        <form action="" method="get">
+            <p id="titulo">Cadastro de Produtos</p>
+
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" nome="Nome">
+            </div>
+
+            <div>
+                <label for="preço">Preço:</label>
+                <input type="text" name="preço">
+            </div>
+
+            <div>
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" name="quantidade" id="quantidade">
+            </div>
+
+            <div>
+                <label for="código">Código:</label>
+                <input type="number" name="codigo" id="codigo">
+            </div>
+
+            <div id="receita">
+                <label for="receita">Precisa de Receita?</label>
+
+                <input class="check" type="checkbox" name="Sim" checked>Sim
+                <input class="check" type="checkbox" name="Não">Não
+
+            </div>
+            <a href="./Produtos.html" id="cadastro">Cadastrar</a>
+
+        </form>
+    </main>
 </body>
+
 </html>

@@ -76,4 +76,92 @@ img{
     margin-left: 2rem;
 }
 
+/*Estilização do formulario de cadastro*/
+
+main {
+    height: 150vh;
+    background-color: #c3c1d2;
+    display: flex;
+    justify-content: center;
+}
+
+
+div {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    padding: 1rem;
+    }
+
+div, label {
+    padding-bottom: 1rem;
+}
+
+#receita{
+    width: 100%;
+    padding-bottom: 2rem;
+}
+
+
+input {
+    
+    border-color: #4115b9; 
+    border-radius: 4px;
+    height: 4rem;    
+    width: 35rem;
+}
+
+form {
+    width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background:#ffffff; 
+    padding: 6rem;
+    border-radius: 1rem;
+}
+
+.check{
+    height: 20px;
+    width: 20px;
+    margin: auto 20rem;
+    
+}
+
+/*#btn {
+    margin: auto;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px 8px;
+    border: 1px #4115b9 solid;
+    background: #4115b9;
+    color: #ffffff;
+    width: 25%;
+}*/
+
+#cadastro{
+    margin: auto;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px 8px;
+    border: 1px #4115b9 solid;
+    background: #4115b9;
+    color: #ffffff;
+    width: 25%;
+}
+
+p {
+    margin: auto;
+    font-size: 25px;
+    color: #4115b9;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif ;
+    padding-top: 1%;
+    padding-bottom: 10%;
+}
+
 /* as configurações acima são para o menu que vai está em toda as telas */
+
+
