@@ -79,7 +79,7 @@ img{
 /*Estilização do formulario de cadastro*/
 
 main {
-    height: 150vh;
+    height: 100vh;
     background-color: #c3c1d2;
     display: flex;
     justify-content: center;
@@ -89,7 +89,7 @@ main {
 div {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     padding: 1rem;
@@ -99,35 +99,43 @@ div, label {
     padding-bottom: 1rem;
 }
 
-#receita{
-    width: 100%;
-    padding-bottom: 2rem;
+#receita > div{
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    padding: 0%;
 }
 
+#receita > p{
+    font-size: 1.6rem;
+    color: black;
+    font-weight: 400;
+    text-align: start;
+    margin-bottom: 1rem;
+}
 
 input {
-    
     border-color: #4115b9; 
     border-radius: 4px;
     height: 4rem;    
-    width: 35rem;
+    outline: none;
+    padding-left: 1rem;
 }
 
 form {
-    width: 500px;
+    width: 50rem;
     margin: auto;
     display: flex;
+    align-items: center;
     flex-direction: column;
     background:#ffffff; 
-    padding: 6rem;
+    padding: 3rem;
     border-radius: 1rem;
 }
 
 .check{
     height: 20px;
-    width: 20px;
-    margin: auto 20rem;
-    
+    width: 20px;    
 }
 
 /*#btn {
@@ -141,25 +149,32 @@ form {
     width: 25%;
 }*/
 
-#cadastro{
-    margin: auto;
+form > a{  
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 8px 8px;
-    border: 1px #4115b9 solid;
+    border: none;
     background: #4115b9;
     color: #ffffff;
-    width: 25%;
+    padding: 0%;
+    height: 5rem;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
 }
 
-p {
-    margin: auto;
-    font-size: 25px;
+form > a:hover{
+    background-color: #3812a1;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
     color: #4115b9;
     font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif ;
-    padding-top: 1%;
-    padding-bottom: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 4rem;
 }
 
 /* as configurações acima são para o menu que vai está em toda as telas */
