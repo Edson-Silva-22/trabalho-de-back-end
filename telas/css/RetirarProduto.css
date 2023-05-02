@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+body {
+  background-color: #F6F1F1;
+}
+
+header {
+  height: 8rem;
+  width: 100%;
+  background-color: #146C94;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo {
+  position: relative;
+  font-size: 2.5rem;
+  height: 100%;
+  width: 15rem;
+  color: white;
+  margin-left: 3rem;
+}
+
+#logo > #span1 {
+  font-family: 'Josefin Sans', sans-serif; 
+  position: absolute;
+  top: 1rem;
+}
+
+#logo > #span2 {
+  font-family: 'Josefin Sans', sans-serif; 
+  position: absolute;
+  bottom: 1rem;
+  left: 7.5rem;
+}
+
+img {
+  width: 3rem;
+  height: 3rem;
+  margin-left: 2rem;
+}
+
+#logo > img {
+  position: absolute;
+  top: 2.6rem;
+  left: 3.2rem;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  font-size: 1.8rem;  
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 3rem 2rem;
+  transition: 0.4s;
+}
+
+ul li a:hover {
+  background-color: #0b5e85;
+}
+
+/*Estilização do formulario de cadastro*/
+
+main {
+  height: 100vh;
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 800px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 7rem;
+  border-radius: 1rem;
+  background-color: #AFD3E2;
+}
+
+form h1 {
+  text-align: center;
+  font-size: 48px;
+  color: #146C94;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 4rem;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+div, label {
+  padding-bottom: 1rem;
+  font-size: 18px;
+}
+
+input { 
+  border-radius: 5px;
+  height: 5rem;    
+  padding-left: 2rem;
+  background-color: #F6F1F1;
+  border: none
+}
+
+form > a {  
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  background: #146C94;
+  color: #ffffff;
+  padding: 0%;
+  height: 7rem;
+  width: 35rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 5.7rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+form > a:hover{
+  background-color: #0b5e85;
+}

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Need Farma</title>
-    <link rel="stylesheet" href="./css/CadastrarProdutos.css">
+    <link rel="stylesheet" href="./css/RetirarProduto.css">
 </head>
 
 <body>
@@ -27,22 +27,20 @@
             <li>
                 <a href="./CadastrarProduto.html">Cadastrar Produtos</a>
             </li>
+            <li>
+              <a href="./RetirarProduto.html">Retirar Produto</a>
+          </li>
         </ul>
     </header>
 
     <!-- o que estiver dentro do main é o que vai mudar em cada tela -->
     <main>
         <form action="" method="get">
-            <h1 id="titulo">Cadastro de Produtos</h1>
+            <h1 id="titulo">Saída de medicamento</h1>
 
             <div>
                 <label for="nome">Nome:</label>
                 <input type="text" nome="Nome" placeholder="Nome do medicamento" required>
-            </div>
-
-            <div>
-                <label for="preço">Preço:</label>
-                <input type="text" name="preço" placeholder="Preço a ser vendido" required>
             </div>
 
             <div>
@@ -54,25 +52,10 @@
                 <label for="código">Código:</label>
                 <input type="number" name="codigo" id="codigo" placeholder="Código do medicamento" required>
             </div>
-
-            <div id="receita">
-                <p>Precisa de Receita?</p>
-
-                <div>
-                    <label for="sim">Sim
-                        <input class="check" type="radio" name="box" checked>
-                    </label>
-    
-                    <label for="não">Não
-                        <input class="check" type="radio" name="box">
-                    </label>
-                </div>
-
-            </div>
-            <a href="./Produtos.html" id="cadastro">Cadastrar</a>
+            
+            <a href="./Produtos.html" id="cadastro">Retirar</a>
 
         </form>
     </main>
 </body>
-
 </html>
