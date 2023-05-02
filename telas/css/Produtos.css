@@ -11,19 +11,19 @@
 }
 
 body{
-    background-color: #C3C1D2;
+    background-color: #F6F1F1;
 }
 
 header{
     height: 8rem;
     width: 100%;
-    background-color: #4D19DF;
+    background-color: #146C94;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#logo{
+header #logo{
     position: relative;
     font-size: 2.5rem;
     height: 100%;
@@ -32,26 +32,26 @@ header{
     margin-left: 3rem;
 }
 
-#logo > #span1{
+header #logo > #span1{
     font-family: 'Josefin Sans', sans-serif; 
     position: absolute;
     top: 1rem;
 }
 
-#logo > #span2{
+header #logo > #span2{
     font-family: 'Josefin Sans', sans-serif; 
     position: absolute;
     bottom: 1rem;
     left: 7.5rem;
 }
 
-#logo > img{
+header #logo > img{
     position: absolute;
     top: 2.6rem;
     left: 3.2rem;
 }
 
-ul{
+header ul{
     display: flex;
     list-style: none;
     font-size: 1.8rem;  
@@ -59,24 +59,23 @@ ul{
     font-weight: 600;
 }
 
-a{
+header a{
     text-decoration: none;
     color: white;
     padding: 3rem 2rem;
     transition: 0.4s;
 }
 
-a:hover{
-    background-color: #4115b9;
+header a:hover{
+    background-color: #0b5e85;
 }
 
-img{
+header img{
     width: 3rem;
     height: 3rem;
     margin-left: 2rem;
 }
 
-/* as configurações acima são para o menu que vai está em toda as telas */
 
 /* as configurações acima são para o menu que vai está em toda as telas */
 
@@ -91,7 +90,7 @@ img{
 }
 
 #lupa{
-    background-color: white;
+    background-color: #AFD3E2;
     border-radius: 5px 0 0 5px;
     height: 100%;
 }
@@ -102,6 +101,7 @@ img{
     border: none;
     text-indent: 2rem;
     outline: none;
+    background-color: #AFD3E2;
 }
 
 #busca > button{
@@ -109,7 +109,7 @@ img{
     border: none;
     padding: 0 1rem;
     border-radius: 0 5px 5px 0;
-    background-color: #4D19DF;
+    background-color: #0b5e85;
     color: white;
     cursor: pointer;
 }
@@ -124,13 +124,13 @@ img{
 }
 
 #container > #tabela{
-    background-color: white;
+    background-color: #AFD3E2;
     width: 23rem;
     height: 19rem;
     font-size: 1.6rem;
     padding: 1rem;
     border-radius: 5px;
-    box-shadow: 2px 4px 5px 2px #a9a7b6;
+    box-shadow: 2px 4px 5px 2px #90adb9;
 }
 
 #container > div > table td{
@@ -189,6 +189,7 @@ img{
     text-align: center;
     margin-bottom: 3rem;
     font-family: Arial, Helvetica, sans-serif;
+    color: #146C94;
 }
 
 #modal > label{
@@ -198,7 +199,7 @@ img{
 #modal > input{
     width: 100%;
     outline: none;
-    border: 1px solid #4D19DF;
+    border: 1px solid #146C94;
     border-radius: 5px;
     height: 4rem;
     margin: 1rem 0 3rem 0;

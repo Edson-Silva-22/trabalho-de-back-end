@@ -11,19 +11,19 @@
 }
 
 body{
-    background-color: #C3C1D2;
+    background-color: #F6F1F1;
 }
 
 header{
     height: 8rem;
     width: 100%;
-    background-color: #4D19DF;
+    background-color: #146C94;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-#logo{
+header #logo{
     position: relative;
     font-size: 2.5rem;
     height: 100%;
@@ -32,26 +32,26 @@ header{
     margin-left: 3rem;
 }
 
-#logo > #span1{
+header #logo > #span1{
     font-family: 'Josefin Sans', sans-serif; 
     position: absolute;
     top: 1rem;
 }
 
-#logo > #span2{
+header #logo > #span2{
     font-family: 'Josefin Sans', sans-serif; 
     position: absolute;
     bottom: 1rem;
     left: 7.5rem;
 }
 
-#logo > img{
+header #logo > img{
     position: absolute;
     top: 2.6rem;
     left: 3.2rem;
 }
 
-ul{
+header ul{
     display: flex;
     list-style: none;
     font-size: 1.8rem;  
@@ -59,21 +59,98 @@ ul{
     font-weight: 600;
 }
 
-a{
+header a{
     text-decoration: none;
     color: white;
     padding: 3rem 2rem;
     transition: 0.4s;
 }
 
-a:hover{
-    background-color: #4115b9;
+header a:hover{
+    background-color: #0b5e85;
 }
 
-img{
+header img{
     width: 3rem;
     height: 3rem;
     margin-left: 2rem;
 }
 
-/* as configurações acima são para o menu que vai está em toda as telas */
+/*Estilização do formulario de cadastro*/
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 80%;
+  max-width: 50rem;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #AFD3E2;
+  box-shadow: 1px 2px 3px 2px #90adb9;
+}
+
+form h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: #146C94;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 4rem;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+div, label {
+  padding-bottom: 1rem;
+  font-size: 16px;
+}
+
+input { 
+  border-radius: 4px;
+  height: 4rem;    
+  padding-left: 2rem;
+  background-color: #F6F1F1;
+  border: none;
+  outline: none;
+}
+
+input:focus{
+  outline: 2px solid #0b5e85;
+}
+
+form > a {  
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  background: #146C94;
+  color: #ffffff;
+  padding: 0%;
+  height: 5rem;
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+main > form > a:hover{
+  background-color: #0b5e85;
+}
