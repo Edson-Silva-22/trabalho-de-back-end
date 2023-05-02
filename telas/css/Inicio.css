@@ -80,20 +80,21 @@ ul li a:hover {
 
 main {
   height: 100vh;
-  margin-top: 5rem;
   display: flex;
   justify-content: center;
 }
 
 form {
-  width: 800px;
+  width: 80%;
+  max-width: 50rem;
   margin: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 7rem;
+  padding: 2rem;
   border-radius: 1rem;
   background-color: #AFD3E2;
+  box-shadow: 1px 2px 3px 2px #90adb9;
 }
 
 form h1 {
@@ -116,35 +117,40 @@ div {
 
 div, label {
   padding-bottom: 1rem;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 input { 
-  border-radius: 5px;
-  height: 5rem;    
+  border-radius: 4px;
+  height: 4rem;    
   padding-left: 2rem;
   background-color: #F6F1F1;
-  border: none
+  border: none;
+  outline: none;
+}
+
+input:focus{
+  outline: 2px solid #0b5e85;
 }
 
 form > a {  
-  font-size: 2rem;
+  font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   border: none;
   background: #146C94;
   color: #ffffff;
   padding: 0%;
-  height: 7rem;
-  width: 35rem;
+  height: 5rem;
+  width: 15rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  margin-top: 5.7rem;
+  margin-top: 5rem;
   font-weight: bold;
   text-decoration: none;
 }
 
-form > a:hover{
+main > form > a:hover{
   background-color: #0b5e85;
 }

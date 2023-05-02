@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 *{
     padding: 0%;
     margin: 0%;
@@ -8,16 +10,48 @@
     font-size: 62.5%;
 }
 
+body{
+    background-color: #F6F1F1;
+}
+
 header{
     height: 8rem;
     width: 100%;
-    background-color: #4D19DF;
+    background-color: #146C94;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-ul{
+header #logo{
+    position: relative;
+    font-size: 2.5rem;
+    height: 100%;
+    width: 15rem;
+    color: white;
+    margin-left: 3rem;
+}
+
+header #logo > #span1{
+    font-family: 'Josefin Sans', sans-serif; 
+    position: absolute;
+    top: 1rem;
+}
+
+header #logo > #span2{
+    font-family: 'Josefin Sans', sans-serif; 
+    position: absolute;
+    bottom: 1rem;
+    left: 7.5rem;
+}
+
+header #logo > img{
+    position: absolute;
+    top: 2.6rem;
+    left: 3.2rem;
+}
+
+header ul{
     display: flex;
     list-style: none;
     font-size: 1.8rem;  
@@ -25,18 +59,18 @@ ul{
     font-weight: 600;
 }
 
-a{
+header a{
     text-decoration: none;
     color: white;
     padding: 3rem 2rem;
     transition: 0.4s;
 }
 
-a:hover{
-    background-color: #4115b9;
+header a:hover{
+    background-color: #0b5e85;
 }
 
-img{
+header img{
     width: 3rem;
     height: 3rem;
     margin-left: 2rem;
