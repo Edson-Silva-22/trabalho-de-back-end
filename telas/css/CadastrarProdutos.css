@@ -79,82 +79,68 @@ header img{
 
 /*Estilização do formulario de cadastro*/
 
+/*Estilização do formulario de cadastro*/
+
 main {
     height: 100vh;
-    background-color: #c3c1d2;
     display: flex;
     justify-content: center;
-}
-
-
-div {
+  }
+  
+  form {
+    width: 80%;
+    max-width: 50rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #AFD3E2;
+    box-shadow: 1px 2px 3px 2px #90adb9;
+  }
+  
+  form h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #146C94;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 4rem;
+  }
+  
+  div {
     display: flex;
     flex-direction: column;
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     padding: 1rem;
-    }
-
-div, label {
+  }
+  
+  div, label {
     padding-bottom: 1rem;
-}
-
-#receita > div{
-    display: flex;
-    flex-direction: row;
-    gap: 4rem;
-    padding: 0%;
-}
-
-#receita > p{
-    font-size: 1.6rem;
-    color: black;
-    font-weight: 400;
-    text-align: start;
-    margin-bottom: 1rem;
-}
-
-input {
-    border-color: #4115b9; 
+    font-size: 16px;
+  }
+  
+  input { 
     border-radius: 4px;
     height: 4rem;    
+    padding-left: 2rem;
+    background-color: #F6F1F1;
+    border: none;
     outline: none;
-    padding-left: 1rem;
-}
-
-form {
-    width: 50rem;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background:#ffffff; 
-    padding: 3rem;
-    border-radius: 1rem;
-}
-
-.check{
-    height: 20px;
-    width: 20px;    
-}
-
-/*#btn {
-    margin: auto;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 8px 8px;
-    border: 1px #4115b9 solid;
-    background: #4115b9;
-    color: #ffffff;
-    width: 25%;
-}*/
-
-form > a{  
+  }
+  
+  input:focus{
+    outline: 2px solid #0b5e85;
+  }
+  
+  form > a {  
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     border: none;
-    background: #4115b9;
+    background: #146C94;
     color: #ffffff;
     padding: 0%;
     height: 5rem;
@@ -162,21 +148,15 @@ form > a{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 1rem;
-}
-
-form > a:hover{
-    background-color: #3812a1;
-}
-
-h1 {
-    text-align: center;
-    font-size: 3rem;
-    color: #4115b9;
-    font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 4rem;
-}
+    border-radius: 10px;
+    margin-top: 5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  main > form > a:hover{
+    background-color: #0b5e85;
+  }
 
 /* as configurações acima são para o menu que vai está em toda as telas */
 
