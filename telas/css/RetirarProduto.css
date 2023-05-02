@@ -65,36 +65,35 @@ ul {
   font-weight: 600;
 }
 
-a{
+ul li a {
   text-decoration: none;
   color: white;
   padding: 3rem 2rem;
   transition: 0.4s;
 }
 
-a:hover{
-  background-color: #4115b9;
+ul li a:hover {
+  background-color: #0b5e85;
 }
 
 /*Estilização do formulario de cadastro*/
 
 main {
   height: 100vh;
+  margin-top: 5rem;
   display: flex;
   justify-content: center;
 }
 
 form {
-  width: 80%;
-  max-width: 50rem;
+  width: 800px;
   margin: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 2rem;
+  padding: 7rem;
   border-radius: 1rem;
   background-color: #AFD3E2;
-  box-shadow: 1px 2px 3px 2px #90adb9;
 }
 
 form h1 {
@@ -117,44 +116,35 @@ div {
 
 div, label {
   padding-bottom: 1rem;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 input { 
-  border-radius: 4px;
-  height: 4rem;    
+  border-radius: 5px;
+  height: 5rem;    
   padding-left: 2rem;
   background-color: #F6F1F1;
-  border: none;
-  outline: none;
-}
-
-input:focus{
-  outline: 2px solid #0b5e85;
+  border: none
 }
 
 form > a {  
-  font-size: 16px;
+  font-size: 2rem;
   font-family: Arial, Helvetica, sans-serif;
   border: none;
   background: #146C94;
   color: #ffffff;
   padding: 0%;
-  height: 5rem;
-  width: 15rem;
+  height: 7rem;
+  width: 35rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  margin-top: 5rem;
+  margin-top: 5.7rem;
   font-weight: bold;
   text-decoration: none;
 }
 
-main > form > a:hover{
-  background-color: #0b5e85;
-}
-
-main > form > a:hover{
+form > a:hover{
   background-color: #0b5e85;
 }
