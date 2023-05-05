@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro de Produtos</title>
     <link rel="stylesheet" href="./css/CadastrarProdutos.css">
+    <script src="./js/cadastrarProduto.js" defer></script>
 </head>
 
 <body>
@@ -31,18 +32,14 @@
     </header>
 
     <!-- o que estiver dentro do main é o que vai mudar em cada tela -->
+    <!--Formulario de cadastro de produtos/medicamentos-->
     <main>
-        <form action="" method="get">
+        <form action="" method="">
             <h1 id="titulo">Cadastro de Produtos</h1>
 
             <div>
                 <label for="nome">Nome:</label>
-                <input type="text" nome="Nome" placeholder="Nome do medicamento" required>
-            </div>
-
-            <div>
-                <label for="preço">Preço:</label>
-                <input type="text" name="preço" placeholder="Preço a ser vendido" required>
+                <input type="text" nome="Nome" id="nome" placeholder="Nome do medicamento" required>
             </div>
 
             <div>
@@ -55,23 +52,10 @@
                 <input type="number" name="codigo" id="codigo" placeholder="Código do medicamento" required>
             </div>
 
-            <div id="receita">
-                <p>Precisa de Receita?</p>
-
-                <div>
-                    <label for="sim">Sim
-                        <input class="check" type="radio" name="box" checked>
-                    </label>
-    
-                    <label for="não">Não
-                        <input class="check" type="radio" name="box">
-                    </label>
-                </div>
-
-            </div>
-            <a href="./Produtos.html" id="cadastro">Cadastrar</a>
-
+            <button type="button" id="submitCadastro">Cadastrar</button>
         </form>
+        
+
     </main>
 </body>
 

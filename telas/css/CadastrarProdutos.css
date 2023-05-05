@@ -120,6 +120,7 @@ input {
     height: 4rem;    
     outline: none;
     padding-left: 1rem;
+
 }
 
 form {
@@ -149,19 +150,20 @@ form {
     width: 25%;
 }*/
 
-form > a{  
+form > #submitCadastro{  
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     border: none;
     background: #4115b9;
     color: #ffffff;
     padding: 0%;
-    height: 5rem;
+    height: 4rem;
     width: 15rem;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 1rem;
+    margin-top: 5%;
 }
 
 form > a:hover{
