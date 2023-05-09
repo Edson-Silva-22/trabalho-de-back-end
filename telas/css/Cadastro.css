@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: #F6F1F1;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 7%;
+  }
+  
+form {
+    width: 80%;
+    max-width: 50rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #AFD3E2;
+    box-shadow: 1px 2px 3px 2px #90adb9;
+  }
+  
+form h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: #146C94;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 4rem;
+  }
+  
+div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  
+div, label {
+    padding-bottom: 1rem;
+    font-size: 16px;
+  }
+  
+input { 
+    width: 100%;
+    border-radius: 4px;
+    height: 4rem;    
+    padding-left: 2rem;
+    background-color: #F6F1F1;
+    border: none;
+    outline: none;
+  }
+  
+input:focus{
+    outline: 2px solid #0b5e85;
+  }
+  
+form > a {  
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    background: #146C94;
+    color: #ffffff;
+    padding: 0%;
+    height: 5rem;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 5rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+main > form > a:hover{
+    background-color: #0b5e85;
+  }
+
+input#cpf{
+  border: none;
+  padding: 10px;
+}
+
+input#telefone{
+  border: none;
+  padding: 10px;
+}
+
+div.container {
+  display:flex;
+  flex-direction: row;
+  padding: 0%;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+}
