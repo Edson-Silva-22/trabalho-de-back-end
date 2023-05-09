@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Need Farma</title>
     <link rel="stylesheet" href="./css/CadastrarProdutos.css">
+    <script src="./js/cadastrarProduto.js" defer></script>
 </head>
 
 <body>
@@ -37,7 +38,7 @@
 
             <div>
                 <label for="nome">Nome:</label>
-                <input type="text" nome="Nome" placeholder="Nome do medicamento" required>
+                <input type="text" nome="Nome" id="nome" placeholder="Nome do medicamento" required>
             </div>
 
             <div>
@@ -50,7 +51,7 @@
                 <input type="number" name="codigo" id="codigo" placeholder="Código do medicamento" required>
             </div>
             
-            <a href="./Produtos.html" id="cadastro">Cadastrar</a>
+            <a id="cadastro">Cadastrar</a>
 
         </form>
     </main>
