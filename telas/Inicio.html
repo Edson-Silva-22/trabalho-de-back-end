@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <link rel="stylesheet" href="./css/Inicio.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
-      </style>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');</style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script src="js/inicio.js" defer></script>
 </head>
 
 <body>
@@ -34,28 +34,34 @@
     </header>
 
     <!-- o que estiver dentro do main é o que vai mudar em cada tela -->
-    <main>
-        <form action="" method="get">
-            <h1 id="titulo">Saída De Medicamento</h1>
-
-            <div>
-                <label for="nome">Nome:</label>
-                <input type="text" nome="Nome" placeholder="Nome do medicamento" required>
+    <div id="app">
+        <main>
+            <h1>Saída de Medicamento</h1>
+            <div id="container" 
+            v-for="(remedio, index) in remedios" 
+            :key="index"
+            v-if="remedios.length"
+            >
+                <h2>Venda Realizada</h2>
+                <div id="content" >
+                    <div id="info">
+                        <p>Nome: {{remedio.nome}}</p>
+                        <p>Código: {{remedio.codigo}}</p>
+                        <p>Quantidade: {{remedio.quantidade}}</p>
+                        <p>Data da Venda: </p>
+                    </div>
+    
+                    <div id="actions">
+                        <button id="detalhes">Detalhes</button>
+                        <button id="excluir">Excluir</button>
+                    </div>
+                </div>
             </div>
 
-            <div>
-                <label for="quantidade">Quantidade:</label>
-                <input type="number" name="quantidade" id="quantidade" placeholder="0" required>
+            <div id="container" v-else>
+                <p>Nenhum medicamento vendido.</p>
             </div>
-
-            <div>
-                <label for="código">Código:</label>
-                <input type="number" name="codigo" id="codigo" placeholder="Código do medicamento" required>
-            </div>
-            
-            <a href="./Produtos.html" id="cadastro">Retirar</a>
-
-        </form>
-    </main>
+        </main>
+    </div>
 </body>
 </html>
