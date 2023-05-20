@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="./css/Inicio.css">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');</style>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.min.js" defer></script>
+    <script src="js/inicio.js" defer></script>
+</head>
+
+<body>
+    <!-- A parte do header vai ser padrão em todas as tela, então não precisa mexer nele por enquanto e o css do menu já esta feito no arquivo Inicio.css -->
+    <header>
+        <div id="logo">
+            <span id="span1">Need</span>
+            <img src="../img/icons8-pulsação-100.png" alt="">
+            <span id="span2">Farma</span>
+        </div>
+
+        <ul>
+            <li>
+                <a href="./Inicio.html">Início</a>
+            </li>
+            <li>
+                <a href="./Produtos.html">Produtos</a>
+            </li>
+            <li>
+                <a href="./CadastrarProduto.html">Cadastrar Produtos</a>
+            </li>
+        </ul>
+    </header>
+
+    <!-- o que estiver dentro do main é o que vai mudar em cada tela -->
+    <div id="app">
+        <main>
+            <h1>Saída de Medicamento</h1>
+            <div id="container" 
+            v-for="(remedio, index) in remedios" 
+            :key="index"
+            v-if="remedios.length"
+            >
+                <h2>Venda Realizada</h2>
+                <div id="content" >
+                    <div id="info">
+                        <p>Nome: {{remedio.nome}}</p>
+                        <p>Código: {{remedio.codigo}}</p>
+                        <p>Quantidade: {{remedio.quantidade}}</p>
+                        <p>Data da Venda: </p>
+                    </div>
+    
+                    <div id="actions">
+                        <button id="detalhes">Detalhes</button>
+                        <button id="excluir">Excluir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="container" v-else>
+                <p>Nenhum medicamento vendido.</p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
