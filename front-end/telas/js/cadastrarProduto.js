@@ -9,17 +9,17 @@ cadastroProduto.addEventListener('click', () => {
     }
 
     else{
-        axios.post('http://localhost:3000/users', {
+        axios.post('http://localhost:3000/produtos', {
             nome: nome.value,
             quantidade: quantidade.value,
             codigo: codigo.value
         }).then(function (response) {
 
             alert('Medicamento cadastrado com sucesso')
-            window.location.reload()
+            window.location.reload(true)
 
-        }).catch(function (error) {
-            console.log(error);
+        }).catch(function (err) {
+            alert(err.response.data.error);
         });
     }
     

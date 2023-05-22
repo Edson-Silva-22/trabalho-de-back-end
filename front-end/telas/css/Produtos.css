@@ -125,7 +125,7 @@ header img{
 
 #container > #tabela{
     background-color: #AFD3E2;
-    width: 23rem;
+    width: 45rem;
     height: 19rem;
     font-size: 1.6rem;
     padding: 1rem;
@@ -168,6 +168,20 @@ header img{
 
 .button2:hover{
     background-color: #b31e1e;
+}
+
+#nenhum{
+    background-color: #AFD3E2;
+    width: 45rem;
+    height: 19rem;
+    font-size: 1.6rem;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 2px 4px 5px 2px #90adb9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
 }
 
 #modal{

@@ -38,12 +38,16 @@
         <main>
             <div id="busca">
                 <img src="../img/lupa 1.png" alt="lupa" id="lupa">
-                <input type="text" name="busca" id="inputBusca" placeholder="Pesquisar medicamento">
-                <button>Buscar</button>
+                <input type="text" name="busca" id="inputBusca" placeholder="Informe o nome do medicamento" v-model="medicamento">
+                <button @click="show">Buscar</button>
             </div>
 
             <div id="container">
-                <div id="tabela" v-for="(remedio, index) in remedios" :key="index">
+                <div id="tabela" 
+                v-for="(remedio, index) in remedios" 
+                :key="index"
+                v-if="remedios.length"
+                >
                     <table>
                         <tbody>
                             <tr>
@@ -64,30 +68,36 @@
                     </table>
 
                     <div>
-                        <button class="button1" ref="buttonOpen" v-on:click="mostrar">Editar</button>
-                        <button class="button2">Excluir</button>
+                        <button class="button1" ref="buttonOpen" v-on:click="mostrar(remedio.nome, remedio.codigo, remedio.quantidade, remedio.id)">Editar</button>
+                        <button class="button2" @click="destroy(remedio.codigo)">Excluir</button>
+                    </div>
+                </div>
+
+                <div v-else id="nenhum">
+                    <p>Nenhum nenhum produto cadastrado.</p>
+                </div>
+
+                <div id="modal" class="hide" ref="modal">
+                    <h1>Atualizar Produto</h1>
+                    <label for="nome">Nome:</label>
+                    <input type="text" name="nome" id="nome" v-model="nome">
+    
+                    <label for="codigo">Código:</label>
+                    <input type="text" name="codigo" id="codigo" v-model="codigo">
+    
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" name="quantidade" id="quantidade" v-model="quantidade">
+    
+                    <div>
+                        <button class="button1" @click="update">Salvar</button>
+                        <button class="button2" ref="buttonClose" v-on:click="mostrar">Cancelar</button>
                     </div>
                 </div>
             </div>
 
             <div id="fade" class="hide" ref="fade" v-on:click="mostrar"></div>
             
-            <div id="modal" class="hide" ref="modal">
-                <h1>Atualizar Produto</h1>
-                <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome">
-
-                <label for="codigo">Código:</label>
-                <input type="text" name="codigo" id="codigo">
-
-                <label for="quantidade">Quantidade:</label>
-                <input type="number" name="quantidade" id="quantidade">
-
-                <div>
-                    <button class="button1">Salvar</button>
-                    <button class="button2" ref="buttonClose" v-on:click="mostrar">Cancelar</button>
-                </div>
-            </div>
+            
         </main>
     </div>
 </body>
