@@ -37,23 +37,86 @@ createApp({
         const buttonClose = ref(null)
         const modal = ref(null)
         const fade = ref(null)
+        const medicamento = ref(null)
+        const nome = ref(null)
+        const codigo = ref(null)
+        const quantidade = ref(null)
+        var id = ref(null)
 
         //adicionado ou removendo classe que escode o modal
-        function mostrar() {
+        function mostrar(inputnome, inputcodigo, inputquantidade, inputid) {
+            nome.value = inputnome
+            codigo.value = inputcodigo
+            quantidade.value = inputquantidade
             modal.value.classList.toggle("hide")
             fade.value.classList.toggle("hide")
+            id.value = inputid
         }
+        
+        //Métodos CRUD
 
-        onMounted( async () => {
-            axios.get('http://localhost:3000/users').then(function (response) {
+        //Método view: lista todos os medicamentos
+        async function view(){
+            axios.get('http://localhost:3000/produtos').then(function (response) {
 
                 response.data.map(v => {
                     remedios.value.push(v)
                 })
 
             }).catch(function (error) {
+                alert('Por causo de um erro interno não foi possível lista os produtos')
                 console.log(error);
             })
+        }
+
+        //Método show: lista um medicamento específico
+        async function show(){
+            axios.get(`http://localhost:3000/produtos/${medicamento.value}`).then((response) => {
+                response.data.map(v => {
+                    remedios.value = []
+                    remedios.value.push(v)
+                })
+            }).catch((error) => {
+                alert(error.response.data.error)
+            })
+        }
+
+        //Método update: atualiza um medicamento na tabela medicamentos
+        async function update(){
+            axios.put(`http://localhost:3000/produtos/${id.value}`, {
+                nome: nome.value,
+                codigo: codigo.value,
+                quantidade: quantidade.value
+
+            }).then((response) => {
+                if(response.data){
+                    alert('Produto atualizado com sucesso')
+                    window.location.reload(true)
+                }
+            }).catch((error) => {
+                alert(error.response.data.error)
+            })
+            
+        }
+
+        //Método destroy: deleta um medicamento na tabela medicamentos
+        async function destroy(codigo){
+            if(confirm("Tem certeza que deseja excluir esse medicamento?") == true){
+                axios.delete(`http://localhost:3000/produtos/${codigo}`).then((response) => {
+                if(response.data){
+                    alert("Produto deletado com sucesso")
+                    window.location.reload(true)
+                }
+                }).catch((error) => {
+                    alert('Por causo de um erro interno não foi possível deletar o produto')
+                    console.log(error);
+                })
+            }
+            
+        }
+
+        onMounted( async () => {
+            view()
         })
 
         return {
@@ -62,7 +125,15 @@ createApp({
             buttonOpen,
             modal,
             fade,
-            mostrar
+            medicamento,
+            nome,
+            codigo,
+            quantidade,
+            mostrar,
+            view,
+            show,
+            update,
+            destroy
         }
     }
 }).mount('#app')
