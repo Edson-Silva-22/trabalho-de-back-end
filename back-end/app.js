@@ -4,9 +4,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const db = require('./dbConfig')
 const cors = require( 'cors')
+const mongoose = require('mongoose')
 
 var indexRouter = require('./routes/index');
 var produtosRouter = require('./routes/produtos');
+var estoquistasRouter = require('./routes/estoquistas');
 
 db.connect((err) => {
     if (err) {
@@ -17,6 +19,8 @@ db.connect((err) => {
       console.log('Conexão bem-sucedida ao MySQL');
 })
 
+//usando o drive mongoose para se conectar com o mongoDB
+mongoose.connect('mongodb://localhost/estoque')
 var app = express();
 
 app.use(logger('dev'));
@@ -28,6 +32,7 @@ app.use(cors())
 
 app.use('/', indexRouter);
 app.use('/produtos', produtosRouter);
+app.use('/estoquistas', estoquistasRouter);
 
 
 module.exports = app;
