@@ -20,23 +20,25 @@ createApp({
             }
         }
 
-        if(nome.value == '' || quantidade.value == '' || codigo.value == ''){
-            alert("Ateção!!. Todos os dados devem ser preenchidos")
-        }
-    
-        else{
-            axios.post('http://localhost:3000/produtos', {
-                nome: nome.value,
-                quantidade: quantidade.value,
-                codigo: codigo.value
-            }).then(function (response) {
-    
-                alert('Medicamento cadastrado com sucesso')
-                window.location.reload(true)
-    
-            }).catch(function (err) {
-                alert(err.response.data.error);
-            });
+        async function store(){
+            if(nome.value == null || quantidade.value == null || codigo.value == null){
+                alert("Ateção!!. Todos os dados devem ser preenchidos")
+            }
+        
+            else{
+                axios.post('http://localhost:3000/produtos', {
+                    nome: nome.value,
+                    quantidade: quantidade.value,
+                    codigo: codigo.value
+                }).then( (response) => {
+        
+                    alert('Medicamento cadastrado com sucesso')
+                    window.location.reload(true)
+        
+                }).catch( (err) => {
+                    alert(err.response.data.error);
+                });
+            }
         }
 
     
@@ -46,7 +48,8 @@ createApp({
             quantidade,
             codigo,
             estilo,
-            toggle
+            toggle,
+            store
         }
     }
 }).mount('#app')
