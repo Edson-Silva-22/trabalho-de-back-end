@@ -1,4 +1,4 @@
-const { ref, createApp, onMounted } = Vue
+const { ref, createApp, onMounted, reactive } = Vue
 createApp({
     setup() {
         let remedios = ref([]/* [
@@ -33,6 +33,8 @@ createApp({
                 quantidade: 15
             }
         ] */);
+        const estilo = ref(null)
+        let click = true
         const buttonOpen = ref(null)
         const buttonClose = ref(null)
         const modal = ref(null)
@@ -42,6 +44,7 @@ createApp({
         const codigo = ref(null)
         const quantidade = ref(null)
         var id = ref(null)
+        
 
         //adicionado ou removendo classe que escode o modal
         function mostrar(inputnome, inputcodigo, inputquantidade, inputid) {
@@ -51,6 +54,19 @@ createApp({
             modal.value.classList.toggle("hide")
             fade.value.classList.toggle("hide")
             id.value = inputid
+        }
+
+        //método que aciona o menu responsivo
+        function toggle(){
+            if(click == true){
+                estilo.value.classList.toggle('open')
+                click = false
+                
+            }
+            else{
+                estilo.value.classList.toggle('open')
+                click = true
+            }
         }
         
         //Métodos CRUD
@@ -129,6 +145,8 @@ createApp({
             nome,
             codigo,
             quantidade,
+            estilo,
+            toggle,
             mostrar,
             view,
             show,
