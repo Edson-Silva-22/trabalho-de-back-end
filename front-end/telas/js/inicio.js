@@ -1,6 +1,8 @@
-const { createApp, ref } = Vue;
+const { createApp, ref, reactive } = Vue;
 createApp({
     setup(){
+        const estilo = ref(null)
+        let click = true
         const remedios = ref([
             {
                 nome: 'Paracetamol',
@@ -34,10 +36,26 @@ createApp({
             }
         ]);
 
+
+        //método que aciona o menu responsivo
+        function toggle(){
+            if(click == true){
+                estilo.value.classList.toggle('open')
+                click = false
+                
+            }
+            else{
+                estilo.value.classList.toggle('open')
+                click = true
+            }
+        }
+
     
 
         return{
             remedios,
+            estilo,
+            toggle
         }
     }
 }).mount('#app')

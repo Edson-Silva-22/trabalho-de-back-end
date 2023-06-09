@@ -12,51 +12,58 @@
 </head>
 
 <body>
-    <!-- A parte do header vai ser padrão em todas as tela, então não precisa mexer nele por enquanto e o css do menu já esta feito no arquivo Inicio.css -->
-    <header>
-        <div id="logo">
-            <span id="span1">Need</span>
-            <img src="../img/icons8-pulsação-100.png" alt="">
-            <span id="span2">Farma</span>
-        </div>
-
-        <ul>
-            <li>
-                <a href="./Inicio.html">Início</a>
-            </li>
-            <li>
-                <a href="./Produtos.html">Produtos</a>
-            </li>
-            <li>
-                <a href="./CadastrarProduto.html">Cadastrar Produtos</a>
-            </li>
-        </ul>
-    </header>
-
     <!-- o que estiver dentro do main é o que vai mudar em cada tela -->
-    <main>
-        <form action="" method="get">
-            <h1 id="titulo">Cadastro De Medicamento</h1>
-
-            <div>
-                <label for="nome">Nome:</label>
-                <input type="text" nome="Nome" id="nome" placeholder="Nome do medicamento" required>
+    <div id="app">
+        <!-- A parte do header vai ser padrão em todas as tela, então não precisa mexer nele por enquanto e o css do menu já esta feito no arquivo Inicio.css -->
+        <header>
+            <div id="logo">
+                <span id="span1">Need</span>
+                <img src="../img/icons8-pulsação-100.png" alt="">
+                <span id="span2">Farma</span>
             </div>
 
-            <div>
-                <label for="quantidade">Quantidade:</label>
-                <input type="number" name="quantidade" id="quantidade" placeholder="0" required>
-            </div>
+            <ul ref="estilo">
+                <li>
+                    <a href="./Inicio.html">Início</a>
+                </li>
+                <li>
+                    <a href="./Produtos.html">Produtos</a>
+                </li>
+                <li>
+                    <a href="./CadastrarProduto.html">Cadastrar Produtos</a>
+                </li>
+            </ul>
 
-            <div>
-                <label for="código">Código:</label>
-                <input type="number" name="codigo" id="codigo" placeholder="Código do medicamento" required>
-            </div>
-            
-            <a id="cadastro">Cadastrar</a>
+            <img src="../img/icons8-menu-hambúrguer-50.png" alt="menu" 
+            id="menuImg"
+            @click="toggle">
+        </header>
 
-        </form>
-    </main>
+        <!-- o que estiver dentro do main é o que vai mudar em cada tela -->
+        <main>
+            <form action="" method="get">
+                <h1 id="titulo">Cadastro De Medicamento</h1>
+
+                <div>
+                    <label for="nome">Nome:</label>
+                    <input type="text" nome="Nome" id="nome" placeholder="Nome do medicamento" required ref="nome">
+                </div>
+
+                <div>
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" name="quantidade" id="quantidade" placeholder="0" required ref="quantidade">
+                </div>
+
+                <div>
+                    <label for="código">Código:</label>
+                    <input type="number" name="codigo" id="codigo" placeholder="Código do medicamento" required ref="codigo">
+                </div>
+
+                <a id="cadastro">Cadastrar</a>
+
+            </form>
+        </main>
+    </div>
 </body>
 
 </html>

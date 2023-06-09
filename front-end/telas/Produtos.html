@@ -12,42 +12,44 @@
 </head>
 
 <body>
-    <!-- A parte do header vai ser padrão em todas as tela, então não precisa mexer nele por enquanto e o css do menu já esta feito no arquivo Inicio.css -->
-    <header>
-        <div id="logo">
-            <span id="span1">Need</span>
-            <img src="../img/icons8-pulsação-100.png" alt="">
-            <span id="span2">Farma</span>
-        </div>
-
-        <ul>
-            <li>
-                <a href="./Inicio.html">Início</a>
-            </li>
-            <li>
-                <a href="./Produtos.html">Produtos</a>
-            </li>
-            <li>
-                <a href="./CadastrarProduto.html">Cadastrar Produtos</a>
-            </li>
-        </ul>
-    </header>
-
     <!-- o que estiver dentro do main é o que vai mudar em cada tela -->
     <div id="app">
+        <!-- A parte do header vai ser padrão em todas as tela, então não precisa mexer nele por enquanto e o css do menu já esta feito no arquivo Inicio.css -->
+        <header>
+            <div id="logo">
+                <span id="span1">Need</span>
+                <img src="../img/icons8-pulsação-100.png" alt="">
+                <span id="span2">Farma</span>
+            </div>
+
+            <ul ref="estilo">
+                <li>
+                    <a href="./Inicio.html">Início</a>
+                </li>
+                <li>
+                    <a href="./Produtos.html">Produtos</a>
+                </li>
+                <li>
+                    <a href="./CadastrarProduto.html">Cadastrar Produtos</a>
+                </li>
+            </ul>
+
+            <img src="../img/icons8-menu-hambúrguer-50.png" alt="menu" 
+            id="menuImg"
+            @click="toggle">
+        </header>
+
+
         <main>
             <div id="busca">
                 <img src="../img/lupa 1.png" alt="lupa" id="lupa">
-                <input type="text" name="busca" id="inputBusca" placeholder="Informe o nome do medicamento" v-model="medicamento">
+                <input type="text" name="busca" id="inputBusca" placeholder="Informe o nome do medicamento"
+                    v-model="medicamento">
                 <button @click="show">Buscar</button>
             </div>
 
             <div id="container">
-                <div id="tabela" 
-                v-for="(remedio, index) in remedios" 
-                :key="index"
-                v-if="remedios.length"
-                >
+                <div id="tabela" v-for="(remedio, index) in remedios" :key="index" v-if="remedios.length">
                     <table>
                         <tbody>
                             <tr>
@@ -68,7 +70,8 @@
                     </table>
 
                     <div>
-                        <button class="button1" ref="buttonOpen" v-on:click="mostrar(remedio.nome, remedio.codigo, remedio.quantidade, remedio.id)">Editar</button>
+                        <button class="button1" ref="buttonOpen"
+                            v-on:click="mostrar(remedio.nome, remedio.codigo, remedio.quantidade, remedio.id)">Editar</button>
                         <button class="button2" @click="destroy(remedio.codigo)">Excluir</button>
                     </div>
                 </div>
@@ -81,13 +84,13 @@
                     <h1>Atualizar Produto</h1>
                     <label for="nome">Nome:</label>
                     <input type="text" name="nome" id="nome" v-model="nome">
-    
+
                     <label for="codigo">Código:</label>
                     <input type="text" name="codigo" id="codigo" v-model="codigo">
-    
+
                     <label for="quantidade">Quantidade:</label>
                     <input type="number" name="quantidade" id="quantidade" v-model="quantidade">
-    
+
                     <div>
                         <button class="button1" @click="update">Salvar</button>
                         <button class="button2" ref="buttonClose" v-on:click="mostrar">Cancelar</button>
@@ -96,8 +99,8 @@
             </div>
 
             <div id="fade" class="hide" ref="fade" v-on:click="mostrar"></div>
-            
-            
+
+
         </main>
     </div>
 </body>
