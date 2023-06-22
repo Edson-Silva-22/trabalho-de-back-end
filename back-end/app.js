@@ -20,7 +20,12 @@ db.connect((err) => {
 })
 
 //usando o drive mongoose para se conectar com o mongoDB
-mongoose.connect('mongodb://localhost/estoque')
+mongoose.connect("mongodb://127.0.0.1:27017/estoque").then(() => {
+  console.log('Conexão bem-sucedida ao MongoDB');
+}).catch (err => {
+  console.log('Erro ao conectar ao MongoDB: ' + err.stack);
+})
+
 var app = express();
 
 app.use(logger('dev'));
