@@ -22,21 +22,42 @@
                 <span id="span2">Farma</span>
             </div>
 
-            <ul ref="estilo">
-                <li>
-                    <a href="./Inicio.html">Início</a>
-                </li>
-                <li>
-                    <a href="./Produtos.html">Produtos</a>
-                </li>
-                <li>
-                    <a href="./CadastrarProduto.html">Cadastrar Produtos</a>
-                </li>
-            </ul>
+            <nav>
+                <ul ref="estilo">
+                    <li>
+                        <a href="./Inicio.html">Início</a>
+                    </li>
+                    <li>
+                        <a href="./Produtos.html">Produtos</a>
+                    </li>
+                    <li>
+                        <a href="./CadastrarProduto.html">Cadastrar Produtos</a>
+                    </li>
+                    <li id="editarPerfil">
+                        <a href="">Editar Perfil</a>
+                    </li>
+                    <li id="sair">
+                        <a href="">Sair</a>
+                    </li>
+                </ul>
+    
+                
+                <img src="../img/icons8-menu-hambúrguer-50.png" alt="menu" 
+                id="menuImg"
+                @click="toggle">
 
-            <img src="../img/icons8-menu-hambúrguer-50.png" alt="menu" 
-            id="menuImg"
-            @click="toggle">
+                <img src="../img/icons8-usuário-homem-com-círculo-48.png" alt="img" id="perfilUser" @click="toggle">
+
+                <ul id="listaPerfil" ref="estilo2">
+                    <li id="editarPerfil2">
+                        <a href="">Editar Perfil</a>
+                    </li>
+                    <li id="sair2">
+                        <a href="">Sair</a>
+                    </li>
+                </ul>
+            </nav>
+            
         </header>
 
         <!-- o que estiver dentro do main é o que vai mudar em cada tela -->

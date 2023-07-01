@@ -34,6 +34,7 @@ createApp({
             }
         ] */);
         const estilo = ref(null)
+        const estilo2 = ref(null)
         let click = true
         const buttonOpen = ref(null)
         const buttonClose = ref(null)
@@ -60,11 +61,13 @@ createApp({
         function toggle(){
             if(click == true){
                 estilo.value.classList.toggle('open')
+                estilo2.value.style.transform = "translate(0%)"
                 click = false
                 
             }
             else{
                 estilo.value.classList.toggle('open')
+                estilo2.value.style.transform = "translate(100%)"
                 click = true
             }
         }
@@ -146,6 +149,7 @@ createApp({
             codigo,
             quantidade,
             estilo,
+            estilo2,
             toggle,
             mostrar,
             view,
