@@ -86,6 +86,45 @@ header #menuImg {
   display: none;
 }
 
+header nav{
+  display: flex;
+  align-items: center;
+}
+
+header #perfilUser{
+  margin-right: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+
+header #perfilUser{
+  background-color: #0b5e85;
+}
+
+#editarPerfil, #sair{
+  display: none;
+}
+
+header #listaPerfil{
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  position: absolute;
+  top: 8rem;
+  background-color: #146C94;
+  right: 0;
+  width: 25rem;
+  transform: translateX(100%);
+  border-radius: 0 0 0 5px;
+  transition: 0.5s;
+}
+
 /*Estilização do formulario de cadastro*/
 
 /*Estilização do formulario de cadastro*/
@@ -174,7 +213,19 @@ main>form>a:hover {
     display: block;
   }
 
-  header>ul {
+  header #perfilUser{
+    display: none;
+  }
+
+  #editarPerfil2, #sair2{
+    display: none;
+  }
+
+  #editarPerfil, #sair{
+    display: block;
+  }
+
+  header > nav >ul {
     display: flex;
     flex-direction: column;
     padding: 0;
