@@ -88,8 +88,8 @@ createApp({
         //Método show: lista um medicamento específico
         async function show(){
             axios.get(`http://localhost:3000/produtos/${medicamento.value}`).then((response) => {
+                remedios.value = []
                 response.data.map(v => {
-                    remedios.value = []
                     remedios.value.push(v)
                 })
             }).catch((error) => {

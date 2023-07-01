@@ -19,9 +19,9 @@ router.get('/', function view (req, res) {
 
 //Método show: lista um único medicamento
 router.get('/:medicamento', function show (req, res) {
-  const query = 'select * from medicamentos where nome like ?;'
+  const query = "select * from medicamentos where nome like ?;"
 
-  db.query(query, [req.params.medicamento], (err, results) => {
+  db.query(query, [`%${req.params.medicamento}%`], (err, results) => {
     if(err){
       console.error('Erro ao executar a busca: ' + err.message);
       return res.status(500).json({ error: 'Erro ao buscar produto' });
