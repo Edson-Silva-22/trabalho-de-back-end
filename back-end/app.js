@@ -9,6 +9,7 @@ const mongoose = require('mongoose')
 var indexRouter = require('./routes/index');
 var produtosRouter = require('./routes/produtos');
 var estoquistasRouter = require('./routes/estoquistas');
+var vendasRouter = require('./routes/vendas');
 
 db.connect((err) => {
     if (err) {
@@ -38,6 +39,6 @@ app.use(cors())
 app.use('/', indexRouter);
 app.use('/produtos', produtosRouter);
 app.use('/estoquistas', estoquistasRouter);
-
+app.use('/vendas', vendasRouter);
 
 module.exports = app;
