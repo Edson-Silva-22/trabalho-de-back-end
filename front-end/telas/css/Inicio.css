@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+:root{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: #F6F1F1;
+}
+
+header{
+    height: 8rem;
+    width: 100%;
+    background-color: #146C94;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header #logo{
+    position: relative;
+    font-size: 2.5rem;
+    height: 100%;
+    width: 15rem;
+    color: white;
+    margin-left: 3rem;
+}
+
+header #logo > #span1{
+    font-family: 'Josefin Sans', sans-serif; 
+    position: absolute;
+    top: 1rem;
+}
+
+header #logo > #span2{
+    font-family: 'Josefin Sans', sans-serif; 
+    position: absolute;
+    bottom: 1rem;
+    left: 7.5rem;
+}
+
+header #logo > img{
+    position: absolute;
+    top: 2.6rem;
+    left: 3.2rem;
+}
+
+header ul{
+    display: flex;
+    list-style: none;
+    font-size: 1.8rem;  
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+header a{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8rem;
+    padding: 0 2rem;
+    transition: 0.4s;
+}
+
+header a:hover{
+    background-color: #0b5e85;
+}
+
+header img{
+    width: 3rem;
+    height: 3rem;
+    margin-left: 2rem;
+}
+
+header #menuImg{
+  margin-right: 2rem;
+  cursor: pointer;
+  display: none;
+}
+
+header nav{
+  display: flex;
+  align-items: center;
+}
+
+header #perfilUser{
+  margin-right: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+
+header #perfilUser{
+  background-color: #0b5e85;
+}
+
+#editarPerfil, #sair{
+  display: none;
+}
+
+header #listaPerfil{
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  position: absolute;
+  top: 8rem;
+  background-color: #146C94;
+  right: 0;
+  width: 25rem;
+  transform: translateX(100%);
+  border-radius: 0 0 0 5px;
+  transition: 0.5s;
+}
+/*Estilização do formulario de cadastro*/
+
+main {
+  height: 100vh;
+  width: 100%;
+}
+
+h1{
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #146C94;
+}
+
+#container{
+  background-color: #AFD3E2;
+  width: 80%;
+  max-width: 100rem;
+  height: fit-content;
+  border-radius: 5px;
+  box-shadow: 2px 4px 5px 2px #90adb9;
+  padding: 1rem;
+  margin: 3rem auto;
+}
+
+#container > h2 {
+  font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #146C94;
+}
+
+#content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#info > p {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#actions{
+  display: flex;
+  gap: 1rem;
+}
+
+button{
+  height: 3rem;
+  width: 8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+#detalhes{
+  background-color: #2453F8;
+}
+
+#detalhes:hover{
+  background-color: #1c43d3;
+}
+
+#excluir{
+  background-color: #D82626;
+}
+
+#excluir:hover{
+  background-color: #b31e1e;
+}
+
+#container > p{
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+@media (max-width: 700px){
+  header #menuImg{
+    display: block;
+  }
+
+  header #perfilUser{
+    display: none;
+  }
+
+  #editarPerfil2, #sair2{
+    display: none;
+  }
+
+  #editarPerfil, #sair{
+    display: block;
+  }
+
+  header > nav >ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style: none;
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    position: absolute;
+    top: 8rem;
+    background-color: #146C94;
+    right: 0;
+    width: 25rem;
+    transform: translateX(100%);
+    border-radius: 0 0 0 5px;
+    transition: 0.5s;
+  }
+
+  .open{
+    transform: translateX(0);
+  }
+}
