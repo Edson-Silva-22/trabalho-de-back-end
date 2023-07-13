@@ -1,6 +1,9 @@
 var express = require('express');
 const db = require('../dbConfig')
+const authMiddleware = require('../middlewares/auth')
+
 var router = express.Router();
+router.use(authMiddleware)
 
 
 //Método view: lista todos os medicamentos
