@@ -1,6 +1,8 @@
 const { createApp, ref, reactive } = Vue
 createApp({
     setup(){
+        //pegando o valor do token compartilhado pelo arquivo cadastroEstoquistas
+        let token = localStorage.getItem('token')
         const nome = ref(null)
         const quantidade = ref(null)
         const codigo = ref(null)
@@ -23,6 +25,17 @@ createApp({
             }
         }
 
+        //método que apaga o token quando o usuário sair do sistema
+        function sair(){
+            localStorage.setItem('token', null)
+            window.location.assign('Login.html')
+        }
+
+
+        //Métodos CRUD
+        
+        //Configurando o token para ser passado em todos as requisições
+        axios.defaults.headers.common['tk'] = `Bearer ${token}`;
         async function store(){
             if(nome.value == null || quantidade.value == null || codigo.value == null){
                 alert("Ateção!!. Todos os dados devem ser preenchidos")
@@ -53,7 +66,8 @@ createApp({
             estilo,
             estilo2,
             toggle,
-            store
+            store,
+            sair
         }
     }
 }).mount('#app')

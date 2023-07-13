@@ -4,7 +4,6 @@ const authConfig = require('../config/auth.json')
 module.exports = (req, res, next) => {
     //Pegando o token do cabeçalho da requisição
     const authHeader = req.headers.tk
-    console.log(authHeader);
     //Fazendo verificações manuais para poupar processamento.
     //Verificando token
     if(!authHeader){

@@ -16,19 +16,18 @@ function generateToken(params = {}){
     })
 }
 
-router.get('/', async function store(req, res, next){
+router.post('/login', async function view(req, res, next){
 
     try{
         const email = req.body.email
         const senha = req.body.senha
         //Verificando se o login do estoquista já existe usando o método findOne
         const estoquista = await estoquistas.findOne({ email }).select('+senha')
-        console.log(estoquista);
         if(estoquista){
             //comparando se senha que foi digitada e a senha salva no banco usando são diferentes usando o padrão de criptografia do bcrypt
             if(!await bcrypt.compare(senha, estoquista.senha)){
-                return res.status(400).json({
-                    message: 'Senha inválida.'
+                return res.status(401).json({
+                    error: 'Senha inválida.'
                 })
             }
             //apagando a senha para não expor na requisição
@@ -36,20 +35,21 @@ router.get('/', async function store(req, res, next){
 
             return res.status(200).json({
                 estoquista, 
+                message: 'Login realizado com sucesso',
                 //Chamando função de gerar token
                 token: generateToken({ id: estoquista.id })
             })
         }
 
         else{
-            return res.status(400).json({
-                message: "Dados inválidos. Verifique e tente novamente"
+            return res.status(401).json({
+                error: "Dados inválidos. Verifique e tente novamente"
             })
         }
     } 
     catch (error){
         return res.status(500).json({
-            error: "Devido ao erro interno não foi possível realizar o cadastro"
+            error: "Devido ao erro interno não foi possível realizar o login"
         })
     }
     
@@ -88,7 +88,7 @@ router.post('/', async function store(req, res, next){
     } 
     catch (error){
         return res.status(500).json({
-            error: "Devido ao erro interno não foi possível realizar o login"
+            error: "Devido ao erro interno não foi possível realizar o cadastro"
         })
     }
     
