@@ -8,35 +8,38 @@
     <link rel="stylesheet" href="css/Login.css">
     <script src="https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.min.js" defer></script>
+    <script src="js/login.js" defer></script>
 </head>
 
 <body>
-    <main>
-        <div id="login">
-            <div>
-                <h1>Login</h1>
-                <form>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email">
-
-                    <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha">
-                </form>
-
-                <div id="button">
-                    <button>Entrar</button>
+    <div id="app">
+        <main>
+            <div id="login">
+                <div>
+                    <h1>Login</h1>
+                    <form>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" v-model="email">
+    
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" id="senha" v-model="senha">
+                    </form>
+    
+                    <div id="button">
+                        <button id="butao" @click="store">Entrar</button>
+                    </div>
                 </div>
                 <p>Clique para <a href="./Cadastro.html">se cadastrar</a></p>
             </div>
-        </div>
-        <div id="logo">
-            <div id="img">
-                <img src="../img/logo.jpeg" alt="logo">
+            <div id="logo">
+                <div id="img">
+                    <img src="../img/logo.jpeg" alt="logo">
+                </div>
+    
+                <p>Gerencie o estoque de sua farmácia de forma rápida e segura.</p>
             </div>
-
-            <p>Gerencie o estoque de sua farmácia de forma rápida e segura.</p>
-        </div>
-    </main>
+        </main>
+    </div>
 </body>
 
 </html>
