@@ -1,6 +1,8 @@
 const { createApp, ref, reactive } = Vue;
 createApp({
     setup(){
+        //pegando o valor do token compartilhado pelo arquivo cadastroEstoquistas
+        let token = localStorage.getItem('token')
         const estilo = ref(null)
         const estilo2 = ref(null)
         let click = true
@@ -98,6 +100,15 @@ createApp({
             }
         }
 
+        //método que apaga o token quando o usuário sair do sistema
+        function sair(){
+            localStorage.setItem('token', null)
+            window.location.assign('Login.html')
+        }
+
+        //Configurando o token para ser passado em todos as requisições onde tk é o nome do header definido seguido da palavra padrão Bearer e o token
+        axios.defaults.headers.common['tk'] = `Bearer ${token}`;
+
         return{
             remedios,
             detalhes,
@@ -105,6 +116,7 @@ createApp({
             estilo,
             estilo2,
             toggle,
+            sair
         }
     }
 }).mount('#app')
