@@ -12,6 +12,7 @@
 
 body {
   background-color: #F6F1F1;
+  overflow: hidden;
 }
 
 header {
@@ -137,7 +138,7 @@ main {
 form {
   width: 80%;
   max-width: 50rem;
-  margin: 6rem auto;
+  margin: 15rem auto;
   display: flex;
   align-items: center;
   flex-direction: column;

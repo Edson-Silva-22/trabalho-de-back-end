@@ -12,6 +12,7 @@
 
 body{
     background-color: #F6F1F1;
+    overflow-x: hidden;
 }
 
 header{
@@ -170,6 +171,7 @@ header nav{
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 2rem;
 }
 
 #container > #tabela{
