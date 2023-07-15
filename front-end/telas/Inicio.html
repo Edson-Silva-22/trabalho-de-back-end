@@ -11,9 +11,7 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.min.js" defer></script>
-
     <script src="js/inicio.js" defer></script>
-    <script src="js/menuResponsivo.js" type="module" defer></script>
 </head>
 
 <body>
@@ -68,19 +66,26 @@
 
         <main>
             <h1>Saída de Medicamento</h1>
+
+            <div id="busca">
+                <img src="../img/lupa 1.png" alt="lupa" id="lupa">
+                <input type="text" name="busca" id="inputBusca" placeholder="Informe o nome do medicamento"
+                    v-model="medicamento">
+                <button @click="show">Buscar</button>
+            </div>
+            
             <div id="container" v-for="(remedio, index) in remedios" :key="index" v-if="remedios.length">
                 <h2>Venda Realizada</h2>
                 <div id="content">
                     <div id="info">
-                        <p>Nome: {{remedio.nome}}</p>
-                        <p>Código: {{remedio.codigo}}</p>
-                        <p>Quantidade: {{remedio.quantidade}}</p>
-                        <p>Data da Venda: </p>
+                        <p>Nome: {{remedio.nome_med}}</p>
+                        <p>Código: {{remedio.cod_med}}</p>
+                        <p>Quantidade Vendida: {{remedio.quantidade}}</p>
+                        <p>Data da Venda: {{remedio.data_da_operação}}</p>
                     </div>
 
                     <div id="actions">
-                        <button id="detalhes">Detalhes</button>
-                        <button id="excluir">Excluir</button>
+                        <button id="excluir" @click="destroy(remedio.id)">Excluir</button>
                     </div>
                 </div>
             </div>

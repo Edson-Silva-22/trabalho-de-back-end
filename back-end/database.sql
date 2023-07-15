@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS medicamentos (
 
 CREATE TABLE IF NOT EXISTS vendas (
     id INT AUTO_INCREMENT,
-    nome_med VARCHAR(225) UNIQUE NOT NULL,
-    cod_med INTEGER UNIQUE NOT NULL,
+    nome_med VARCHAR(225) NOT NULL,
+    cod_med INTEGER NOT NULL,
     quantidade INTEGER NOT NULL,
     data_da_operação DATETIME NOT NULL,
     PRIMARY KEY(id)

@@ -1,89 +1,15 @@
-const { createApp, ref, reactive } = Vue;
+const { createApp, ref, reactive, onMounted } = Vue;
 createApp({
     setup(){
         //pegando o valor do token compartilhado pelo arquivo cadastroEstoquistas
         let token = localStorage.getItem('token')
         const estilo = ref(null)
         const estilo2 = ref(null)
+        const data = ref(null)
         let click = true
-        const remedios = ref([
-            {
-                nome: 'Paracetamol',
-                codigo: 'RMD-001',
-                quantidade: 50
-            },
-            {
-                nome: 'Ibuprofeno',
-                codigo: 'RMD-002',
-                quantidade: 30
-            },
-            {
-                nome: 'Dipirona',
-                codigo: 'RMD-003',
-                quantidade: 20
-            },
-            {
-                nome: 'Amoxicilina',
-                codigo: 'RMD-004',
-                quantidade: 10
-            },
-            {
-                nome: 'Cetoprofeno',
-                codigo: 'RMD-005',
-                quantidade: 25
-            },
-            {
-                nome: 'Omeprazol',
-                codigo: 'RMD-006',
-                quantidade: 15
-        const remedios = ref([]);
+        const remedios = ref([])
+        const medicamento = ref(null)
 
-        const detalhes = ref(null)
-        const excluir = ref(null)
-
-
-        //Método view: lista todos os medicamentos
-        async function view(){
-            axios.get('http://localhost:3000/produtos').then(function (response) {
-
-                response.data.map(v => {
-                    remedios.value.push(v)
-                })
-
-            }).catch(function (error) {
-                alert('Por causo de um erro interno não foi possível lista os produtos')
-                console.log(error);
-            })
-        }
-
-        //Método show: lista um medicamento específico
-        async function show(){
-            axios.get(`http://localhost:3000/produtos/${medicamento.value}`).then((response) => {
-                response.data.map(v => {
-                    remedios.value = []
-                    remedios.value.push(v)
-                })
-            }).catch((error) => {
-                alert(error.response.data.error)
-            })
-        }
-
-
-        //Método destroy: deleta um medicamento na tabela medicamentos
-        async function destroy(codigo){
-            if(confirm("Tem certeza que deseja excluir esse medicamento?") == true){
-                axios.delete(`http://localhost:3000/produtos/${codigo}`).then((response) => {
-                if(response.data){
-                    alert("Produto deletado com sucesso")
-                    window.location.reload(true)
-                }
-                }).catch((error) => {
-                    alert('Por causo de um erro interno não foi possível deletar o produto')
-                    console.log(error);
-                })
-            }
-            
-        }
     
         //método que aciona o menu responsivo
         function toggle(){
@@ -106,17 +32,71 @@ createApp({
             window.location.assign('Login.html')
         }
 
+
+
         //Configurando o token para ser passado em todos as requisições onde tk é o nome do header definido seguido da palavra padrão Bearer e o token
         axios.defaults.headers.common['tk'] = `Bearer ${token}`;
 
+        //Método view: lista todos os medicamentos
+        async function view(){
+            axios.get(`http://localhost:3000/vendas/?${data.value}`).then(function (response) {
+
+                response.data.results.map(v => {
+                    remedios.value.push(v)
+                })
+
+            }).catch(function (error) {
+                alert('Por causo de um erro interno não foi possível lista os produtos')
+                console.log(error);
+            })
+        }
+
+        //Método show: lista um medicamento específico
+        async function show(){
+            console.log(medicamento.value);
+            axios.get(`http://localhost:3000/vendas/show/${medicamento.value}`).then((response) => {
+                remedios.value = []
+                response.data.results.map(v => {
+                    remedios.value.push(v)
+                })
+                console.log(response);
+            }).catch((error) => {
+                alert(error.response.data.error)
+            })
+        }
+
+
+        //Método destroy: deleta um medicamento na tabela medicamentos
+        async function destroy(id){
+            console.log(id);
+            if(confirm("Tem certeza que deseja excluir esse medicamento?") == true){
+                axios.delete(`http://localhost:3000/vendas/${id}`).then((response) => {
+                if(response.data){
+                    alert("Produto deletado com sucesso")
+                    window.location.reload(true)
+                }
+                }).catch((error) => {
+                    alert('Por causo de um erro interno não foi possível deletar o produto')
+                    console.log(error);
+                })
+            }
+            
+        }
+
+        onMounted( async () => {
+            view()
+        })
+
         return{
             remedios,
-            detalhes,
-            excluir,
+            medicamento,
             estilo,
             estilo2,
             toggle,
-            sair
+            sair,
+            view,
+            show,
+            destroy
         }
     }
 }).mount('#app')
