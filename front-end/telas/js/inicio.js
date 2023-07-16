@@ -9,6 +9,7 @@ createApp({
         let click = true
         const remedios = ref([])
         const medicamento = ref(null)
+        const inputdata = ref(null)
 
     
         //método que aciona o menu responsivo
@@ -39,30 +40,44 @@ createApp({
 
         //Método view: lista todos os medicamentos
         async function view(){
-            axios.get(`http://localhost:3000/vendas/?${data.value}`).then(function (response) {
-
-                response.data.results.map(v => {
-                    remedios.value.push(v)
+            remedios.value = []
+            if(inputdata.value){
+                axios.get(`http://localhost:3000/vendas/${inputdata.value}`,).then(function (response) {
+                    response.data.results.map(v => {
+                        remedios.value.push(v)
+                    })
+    
+                }).catch(function (error) {
+                    alert('Por causo de um erro interno não foi possível lista os produtos')
+                    console.log(error);
                 })
-
-            }).catch(function (error) {
-                alert('Por causo de um erro interno não foi possível lista os produtos')
-                console.log(error);
-            })
+            }
+            else{
+                axios.get(`http://localhost:3000/vendas/`,).then(function (response) {
+                    response.data.results.map(v => {
+                        remedios.value.push(v)
+                    })
+    
+                }).catch(function (error) {
+                    alert('Por causo de um erro interno não foi possível lista os produtos')
+                    console.log(error);
+                })
+            }
         }
 
         //Método show: lista um medicamento específico
         async function show(){
-            console.log(medicamento.value);
-            axios.get(`http://localhost:3000/vendas/show/${medicamento.value}`).then((response) => {
-                remedios.value = []
-                response.data.results.map(v => {
-                    remedios.value.push(v)
+            if(medicamento.value){
+                axios.get(`http://localhost:3000/vendas/show/${medicamento.value}`).then((response) => {
+                    remedios.value = []
+                    response.data.results.map(v => {
+                        remedios.value.push(v)
+                    })
+                    console.log(response);
+                }).catch((error) => {
+                    alert(error.response.data.error)
                 })
-                console.log(response);
-            }).catch((error) => {
-                alert(error.response.data.error)
-            })
+            }
         }
 
 
@@ -92,6 +107,7 @@ createApp({
             medicamento,
             estilo,
             estilo2,
+            inputdata,
             toggle,
             sair,
             view,
