@@ -5,8 +5,9 @@ var router = express.Router();
 //Método view: lista todas as vendas realizadas ou um conjunto de vendas por data
 router.get('/:data?', function view(req, res, next) {
   try {
+    console.log(req.params.data);
     if(req.params.data){
-      const query = `SELECT id, nome_med,cod_med,quantidade, DATE_FORMAT(data_da_operação, '%d-%m-%Y') FROM vendas WHERE data_da_operação LIKE ? ORDER BY data_da_operação DESC;`
+      const query = `SELECT id, nome_med,cod_med,quantidade, DATE_FORMAT(data_da_operação, '%d-%m-%Y Hora: %H:%i') as data_da_operação FROM vendas WHERE data_da_operação LIKE ? ORDER BY data_da_operação DESC;`
       db.query(query, [`${req.params.data}%`], (err, results) => {
         if(err){
           console.log(err);
