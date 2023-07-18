@@ -57,6 +57,15 @@ createApp({
         async function view(){
             axios.get('http://localhost:3000/produtos').then(function (response) {
 
+                
+                localStorage.setItem('aviso', response.data.some(v => {
+                    if(v.quantidade <= 10){
+                        return true
+                    }
+                    else{
+                        return false
+                    }
+                }))
                 response.data.map(v => {
                     remedios.value.push(v)
                 })
@@ -87,10 +96,11 @@ createApp({
                 quantidade: quantidade.value
 
             }).then((response) => {
-                if(response.data){
-                    alert('Produto atualizado com sucesso')
-                    window.location.reload(true)
-                }
+                 
+                alert('Produto atualizado com sucesso')
+                window.location.reload(true)
+
+                
             }).catch((error) => {
                 alert(error.response.data.error)
             })
