@@ -124,6 +124,7 @@ header nav{
     transform: translateX(100%);
     border-radius: 0 0 0 5px;
     transition: 0.5s;
+    z-index: 2;
   }
 
 
@@ -182,6 +183,24 @@ header nav{
     padding: 1rem;
     border-radius: 5px;
     box-shadow: 2px 4px 5px 2px #90adb9;
+    position: relative;
+}
+
+#aviso{
+    background-color: #dfca13;
+    height: 4rem;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #580808;
+    border-radius: 5px;
+    box-shadow: 2px 4px 5px 2px #a59612;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #container > div > table td{
@@ -335,6 +354,7 @@ header nav{
         transform: translateX(100%);
         border-radius: 0 0 0 5px;
         transition: 0.5s;
+        z-index: 2;
       }
     
       .open{

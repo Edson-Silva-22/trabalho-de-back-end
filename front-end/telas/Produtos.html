@@ -71,6 +71,7 @@
 
             <div id="container">
                 <div id="tabela" v-for="(remedio, index) in remedios" :key="index" v-if="remedios.length">
+                    <span id="aviso" v-if="remedio.quantidade <= 10">Estoque Baixo</span>
                     <table>
                         <tbody>
                             <tr>

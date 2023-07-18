@@ -3,6 +3,7 @@ createApp({
     setup(){
         //pegando o valor do token compartilhado pelo arquivo cadastroEstoquistas
         let token = localStorage.getItem('token')
+        let aviso = ref(null)
         const estilo = ref(null)
         const estilo2 = ref(null)
         const data = ref(null)
@@ -40,6 +41,7 @@ createApp({
 
         //Método view: lista todos os medicamentos
         async function view(){
+            aviso.value = localStorage.getItem('aviso')
             remedios.value = []
             if(inputdata.value){
                 axios.get(`http://localhost:3000/vendas/${inputdata.value}`,).then(function (response) {
@@ -108,6 +110,7 @@ createApp({
             estilo,
             estilo2,
             inputdata,
+            aviso,
             toggle,
             sair,
             view,

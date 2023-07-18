@@ -3,6 +3,7 @@ createApp({
     setup(){
         //pegando o valor do token compartilhado pelo arquivo cadastroEstoquistas
         let token = localStorage.getItem('token')
+        let aviso = ref(localStorage.getItem('aviso'))
         const nome = ref(null)
         const quantidade = ref(null)
         const codigo = ref(null)
@@ -50,6 +51,13 @@ createApp({
         
                     alert('Medicamento cadastrado com sucesso')
                     window.location.reload(true)
+
+                    if(quantidade.value <= 10){
+                        localStorage.setItem('aviso', true)
+                    }
+                    else{
+                        localStorage.setItem('aviso', false)
+                    }
         
                 }).catch( (err) => {
                     alert(err.response.data.error);
@@ -65,6 +73,7 @@ createApp({
             codigo,
             estilo,
             estilo2,
+            aviso,
             toggle,
             store,
             sair
