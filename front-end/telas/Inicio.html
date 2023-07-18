@@ -74,7 +74,12 @@
                 <img src="../img/lupa 1.png" alt="lupa" id="lupa">
                 <input type="text" name="busca" id="inputBusca" placeholder="Informe o nome do medicamento"
                     v-model="medicamento">
-                <button @click="show">Buscar</button>
+                <button @click="show">Buscar</button>   
+            </div>
+
+            <div id="data">
+                <label for="data">Buscar por data</label>
+                <input type="date" name="data" required v-model="inputdata" @change="view">
             </div>
             
             <div id="container" v-for="(remedio, index) in remedios" :key="index" v-if="remedios.length">
