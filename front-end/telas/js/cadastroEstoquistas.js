@@ -26,6 +26,7 @@ createApp({
                     
                     //Utilizando o localStorage para que o token possa ser usado nos outros arquivos 
                     localStorage.setItem('token', response.data.token)
+                    localStorage.setItem('authId', response.data.estoquista._id)
                     alert('Estoquista cadastrado com sucesso')
                     window.location.assign('Inicio.html')
         

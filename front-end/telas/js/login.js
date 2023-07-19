@@ -18,6 +18,7 @@ createApp({
                     senha: senha.value
                 }).then(function (response) {
                     localStorage.setItem('token', response.data.token)
+                    localStorage.setItem('authId', response.data.estoquista._id)
                     alert(response.data.message)
                     window.location.assign('Inicio.html')
                 }).catch(function (error) {

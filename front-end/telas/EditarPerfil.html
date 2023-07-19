@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Produtos - Need Farma</title>
-    <link rel="stylesheet" href="./css/CadastrarProdutos.css">
+    <title>Need Farma</title>
+    <link rel="stylesheet" href="css/EditarPerfil.css">
     <script src="https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.min.js" defer></script>
-    <script src="./js/cadastrarProduto.js" defer></script>
+    <script src="js/editarPerfil.js" defer></script>
 </head>
-
 <body>
-    <!-- o que estiver dentro do main é o que vai mudar em cada tela -->
     <div id="app">
         <!-- A parte do header vai ser padrão em todas as tela, então não precisa mexer nele por enquanto e o css do menu já esta feito no arquivo Inicio.css -->
         <header>
@@ -53,7 +50,7 @@
 
                 <ul id="listaPerfil" ref="estilo2">
                     <li id="editarPerfil2">
-                        <a href="EditarPerfil.html">Editar Perfil</a>
+                        <a href="">Editar Perfil</a>
                     </li>
                     <li id="sair2">
                         <a @click="sair">Sair</a>
@@ -63,31 +60,46 @@
             
         </header>
 
-        <!-- o que estiver dentro do main é o que vai mudar em cada tela -->
         <main>
             <form action="" method="get">
-                <h1 id="titulo">Cadastro De Medicamento</h1>
-
+                <h1 id="titulo">Cadastro</h1>
+    
                 <div>
                     <label for="nome">Nome:</label>
-                    <input type="text" nome="Nome" id="nome" placeholder="Nome do medicamento" required v-model="nome">
+                    <input type="text" nome="Nome" placeholder="Insira seu nome" required v-model="nome">
                 </div>
-
+    
                 <div>
-                    <label for="quantidade">Quantidade:</label>
-                    <input type="number" name="quantidade" id="quantidade" placeholder="0" required v-model="quantidade">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="exemplo@exemplo.com.br" required v-model="email">
                 </div>
-
+    
                 <div>
-                    <label for="código">Código:</label>
-                    <input type="number" name="codigo" id="codigo" placeholder="Código do medicamento" required v-model="codigo">
+                    <label for="senha">Senha:</label>
+                    <input type="password" name="senha" id="senha" placeholder="Insira sua senha" required v-model="senha">
                 </div>
-
-                <a id="cadastro" @click="store">Cadastrar</a>
-
+            
+            <div class="container">
+                <div>
+                    <label for="cpf">CPF:</label>
+                    <input type="text" name="cpf" id="cpf" placeholder="Insira seu CPF" pattern="[0-9]{11}" required v-model="cpf">
+                </div>
+    
+                <div>
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" name="telefone" id="telefone" placeholder="(99)9999-9999" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" title="Número de telefone precisa ser no formato (99)9999-9999" required v-model="telefone">
+                </div>
+            </div>
+            
+                <div>
+                    <label for="cidade">Cidade:</label>
+                    <input type="cidade" name="cidade" id="cidade" placeholder="Sua cidade" required v-model="cidade">
+                </div>
+    
+                <a id="cadastro" @click="update">Atualizar</a>
+    
             </form>
         </main>
     </div>
 </body>
-
 </html>
