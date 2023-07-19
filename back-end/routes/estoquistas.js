@@ -16,6 +16,31 @@ function generateToken(params = {}){
     })
 }
 
+
+router.get('/:id', async function view(req, res, next){
+    try {
+        const _id = req.params.id
+        const estoquista = await estoquistas.findOne({ _id })
+        if(estoquista){
+            estoquista.senha = undefined
+            return res.status(200).json({
+                estoquista,
+            })
+        }
+        else{
+            return res.status(401).json({
+                error: "Dados inválidos. Verifique e tente novamente"
+            })
+        }
+    } 
+    catch (error) {
+        return res.status(500).json({
+            error: "Devido ao erro interno não foi possível realizar o login"
+        })
+    }
+})
+
+
 router.post('/login', async function view(req, res, next){
 
     try{
@@ -60,10 +85,24 @@ router.post('/', async function store(req, res, next){
 
     try{
         const email = req.body.email
+        const cpf = req.body.cpf
+        const telefone = req.body.telefone
         //Verificando se o estoquista já existe usando o método findOne
-        if(await estoquistas.findOne({ email })){
+        if(await estoquistas.findOne({ email }).where({ _id:{$ne: req.params.id} })){
             return res.status(400).json({
-                message: "Usuário já está cadastrado"
+                error: "Este email já esta sendo utilizado"
+            })
+        }
+
+        if(await estoquistas.findOne({ cpf }).where({ _id:{$ne: req.params.id} })){
+            return res.status(400).json({
+                error: "Este cpf já foi cadastrado no sistema"
+            })
+        }
+
+        if(await estoquistas.findOne({ telefone }).where({ _id:{$ne: req.params.id} })){
+            return res.status(400).json({
+                error: "Este telefone já esta vinculado a outro usuário"
             })
         }
 
@@ -97,27 +136,52 @@ router.post('/', async function store(req, res, next){
 router.put('/:id', async function update(req, res){
     try{
         const findUser = await estoquistas.findOne({_id: req.params.id})
+        console.log(req.params.id);
+        const email = req.body.email
+        const cpf = req.body.cpf
+        const telefone = req.body.telefone
 
         const cryptSenha = await bcrypt.hash(req.body.senha, 12)
 
         if(findUser){
-            await estoquistas.updateOne({_id: req.params.id}, {
-                nome: req.body.nome,
-                email: req.body.email,
-                senha: cryptSenha,
-                cpf: req.body.cpf,
-                cidade: req.body.cidade,
-                telefone: req.body.telefone
-            }).then(async () => {
-                return res.status(200).json({
-                    message: "Perfil atualizado com sucesso" ,
-                    response: await estoquistas.findOne({_id: req.params.id})
+            if(await estoquistas.findOne({ email }).where({ _id:{$ne: req.params.id} })){
+                return res.status(400).json({
+                    error: "Este email já esta sendo utilizado"
                 })
-            }).catch(error => {
-                return res.status(500).json({
-                    error: "Devido ao erro interno não foi possível atualizar o perfil"
+            }
+    
+            if(await estoquistas.findOne({ cpf }).where({ _id:{$ne: req.params.id} })){
+                return res.status(400).json({
+                    error: "Este cpf já foi cadastrado no sistema"
                 })
-            })
+            }
+    
+            if(await estoquistas.findOne({ telefone }).where({ _id:{$ne: req.params.id} })){
+                return res.status(400).json({
+                    error: "Este telefone já esta vinculado a outro usuário"
+                })
+            }
+
+            else{
+
+                await estoquistas.updateOne({_id: req.params.id}, {
+                    nome: req.body.nome,
+                    email: req.body.email,
+                    senha: cryptSenha,
+                    cpf: req.body.cpf,
+                    cidade: req.body.cidade,
+                    telefone: req.body.telefone
+                }).then(async () => {
+                    return res.status(200).json({
+                        message: "Perfil atualizado com sucesso" ,
+                        response: await estoquistas.findOne({_id: req.params.id})
+                    })
+                }).catch(error => {
+                    return res.status(500).json({
+                        error: "Devido ao erro interno não foi possível atualizar o perfil"
+                    })
+                })
+            }
         }
         else{
             return res.status(404).json({
@@ -126,6 +190,7 @@ router.put('/:id', async function update(req, res){
         }
     }
     catch (error){
+        console.log(error);
         return res.status(500).json({
             error: "Devido ao erro interno não foi possível atualizar o perfil"
         })
